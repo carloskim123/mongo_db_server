@@ -4,7 +4,6 @@ const { getDb, connectToDb } = require("./db");
 const cors = require("cors");
 
 
-
 let PORT = 4234;
 // init app & middleware
 const app = express();
