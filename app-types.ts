@@ -1,3 +1,6 @@
+import { ObjectId } from "mongodb"
+
+
 type Book = {
     readonly _id: typeof ObjectId,
     title: string,

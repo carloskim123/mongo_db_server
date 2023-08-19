@@ -1,21 +1,23 @@
-import { Db, MongoClient } from "mongodb";
+const {MongoClient} = require("mongodb");
 
-let dbConnection: Db
+let dbConnection;
 
 module.exports = {
-  connectToDb: (cb: (err) => void) => {
+  connectToDb: (cb => {
     console.log("------------Called-----------------");
     MongoClient.connect("mongodb://127.0.0.1:27017/bookstore?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.5")
-      .then((client: MongoClient) => {
+      .then((client) => {
         console.log("------------Success-----------------");
         dbConnection = client.db();
         return cb(null);
       })
-      .catch((err: Error) => {
+      .catch((err) => {
         console.log("-------------Error-----------------");
         console.log(err);
         return cb(err);
       });
-  },
+  }),
   getDb: () => dbConnection
 };
+
+
