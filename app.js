@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // db connection
+
 let db;
 
 connectToDb((err) => {
